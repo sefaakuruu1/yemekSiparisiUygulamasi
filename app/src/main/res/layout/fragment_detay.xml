@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="DetayToolbarBaslik"
+            type="String" />
+        <variable
+            name="DetayFragment"
+            type="com.sefakuru.yemeksiparisiuygulamasi.ui.fragment.DetayFragment" />
+        <variable
+            name="yemekNesnesi"
+            type="com.sefakuru.yemeksiparisiuygulamasi.data.entity.Yemek" />
+        <variable
+            name="tiklanma"
+            type="Integer" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textAlignment="center"
+        tools:context=".ui.fragment.DetayFragment">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarDetay"
+            app:title="@{DetayToolbarBaslik}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/buttonArttir"
+            android:layout_width="64dp"
+            android:onClick="@{() -> DetayFragment.arttir()}"
+            android:layout_height="64dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="100dp"
+            android:text="+"
+            android:textColor="@color/white"
+            android:textSize="34sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewFiyatDetay" />
+
+        <ImageView
+            android:id="@+id/imageViewDetay"
+            android:layout_width="223dp"
+            android:layout_height="223dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ayran"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.531"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbarDetay" />
+
+        <Button
+            android:id="@+id/buttonAzalt"
+            android:onClick="@{() -> DetayFragment.azalt()}"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="16dp"
+            android:text="-"
+            android:textColor="@color/white"
+            android:textSize="34sp"
+            app:iconTint="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewFiyatDetay" />
+
+        <TextView
+            android:id="@+id/textViewYemekAd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@{yemekNesnesi.yemek_adi}"
+            android:textColor="@color/black"
+            android:textSize="29sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/imageViewDetay"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/imageViewDetay"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewDetay" />
+
+        <TextView
+            android:id="@+id/textViewMiktar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@{tiklanma.toString()}"
+            android:textSize="34sp"
+            app:layout_constraintEnd_toStartOf="@+id/buttonArttir"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/buttonAzalt"
+            app:layout_constraintTop_toBottomOf="@+id/textViewFiyatDetay" />
+
+        <TextView
+            android:id="@+id/textViewFiyatDetay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text='@{yemekNesnesi.yemek_fiyat + "₺"}'
+            android:textColor="@color/gri"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/textViewYemekAd"
+            app:layout_constraintStart_toStartOf="@+id/textViewYemekAd"
+            app:layout_constraintTop_toBottomOf="@+id/textViewYemekAd" />
+
+        <Button
+            android:id="@+id/buttonSepeteEkle"
+            android:onClick="@{() ->DetayFragment.sepeteEkle(yemekNesnesi.yemek_adi,yemekNesnesi.yemek_resim_adi,yemekNesnesi.yemek_fiyat,tiklanma)}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="96dp"
+            android:text="SEPETE EKLE"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+
