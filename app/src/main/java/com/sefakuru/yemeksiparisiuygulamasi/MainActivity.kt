@@ -2,6 +2,7 @@ package com.sefakuru.yemeksiparisiuygulamasi
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
@@ -13,7 +14,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding=DataBindingUtil.setContentView(this,R.layout.activity_main)
 
-
         navigationController()
     }
 
@@ -23,19 +23,5 @@ class MainActivity : AppCompatActivity() {
         NavigationUI.setupWithNavController(binding.bottomNav, navController)
     }
 
-    override fun onResume() {
-        super.onResume()
-    }
 
-    override fun onDestroy() {
-        super.onDestroy()
-    }
-
-    override fun onRestart() {
-        super.onRestart()
-    }
-
-    override fun onStop() {
-        super.onStop()
-    }
 }

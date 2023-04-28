@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.sefakuru.yemeksiparisiuygulamasi.R
+import com.sefakuru.yemeksiparisiuygulamasi.Util
 import com.sefakuru.yemeksiparisiuygulamasi.data.entity.Yemek
 import com.sefakuru.yemeksiparisiuygulamasi.databinding.FragmentFavorilerBinding
 import com.sefakuru.yemeksiparisiuygulamasi.ui.adapter.FavorilerAdapter
@@ -21,6 +22,8 @@ private lateinit var binding:FragmentFavorilerBinding
 
         binding=DataBindingUtil.inflate(inflater,R.layout.fragment_favoriler, container, false)
         binding.toolbarFavoriler.title="Favoriler"
+
+        Util.bottomNavigationVisible(requireActivity())
 
         binding.rvFavori.layoutManager=StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
         val favorilerListe=ArrayList<Yemek>()

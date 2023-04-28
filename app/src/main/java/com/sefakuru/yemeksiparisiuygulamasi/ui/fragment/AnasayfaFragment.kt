@@ -12,6 +12,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.Observer
 import com.sefakuru.yemeksiparisiuygulamasi.R
+import com.sefakuru.yemeksiparisiuygulamasi.Util
 import com.sefakuru.yemeksiparisiuygulamasi.data.entity.Yemek
 import com.sefakuru.yemeksiparisiuygulamasi.databinding.FragmentAnasayfaBinding
 import com.sefakuru.yemeksiparisiuygulamasi.ui.adapter.YemeklerAdapter
@@ -53,6 +54,8 @@ class AnasayfaFragment : Fragment(), SearchView.OnQueryTextListener {
         requireActivity().addMenuProvider(object : MenuProvider{
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
               menuInflater.inflate(R.menu.toolbar_menu,menu)
+
+                Util.bottomNavigationVisible(requireActivity())
 
                 val item=menu.findItem(R.id.action_ara)
                 val searchView=item.actionView as SearchView

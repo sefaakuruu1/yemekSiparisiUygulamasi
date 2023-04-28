@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import com.sefakuru.yemeksiparisiuygulamasi.R
+import com.sefakuru.yemeksiparisiuygulamasi.Util
 import com.sefakuru.yemeksiparisiuygulamasi.data.entity.SepetYemek
 import com.sefakuru.yemeksiparisiuygulamasi.databinding.FragmentSepetBinding
 import com.sefakuru.yemeksiparisiuygulamasi.ui.adapter.SepetYemeklerAdapter
@@ -24,6 +25,9 @@ private lateinit var viewModel: SepetViewModel
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_sepet, container, false)
         binding.sepetFragment=this
         binding.sepetToolbarBaslik = "Sepetiniz"
+        //sepet elemanlarini nerde yukliuyorsun
+
+        Util.bottomNavigationVisible(requireActivity())
 
        viewModel.yemekSepetListesi.observe(viewLifecycleOwner){
            val adapter = SepetYemeklerAdapter(requireContext(),it,viewModel)

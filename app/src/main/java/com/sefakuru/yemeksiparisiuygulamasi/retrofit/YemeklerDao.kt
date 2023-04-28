@@ -1,6 +1,7 @@
 package com.sefakuru.yemeksiparisiuygulamasi.retrofit
 
 import com.sefakuru.yemeksiparisiuygulamasi.data.entity.CRUDCevap
+import com.sefakuru.yemeksiparisiuygulamasi.data.entity.CardResponse
 import com.sefakuru.yemeksiparisiuygulamasi.data.entity.SepetYemek
 import com.sefakuru.yemeksiparisiuygulamasi.data.entity.YemekCevap
 import retrofit2.Call
@@ -28,7 +29,7 @@ interface YemeklerDao {
 
     @POST("yemekler/sepettekiYemekleriGetir.php")
     @FormUrlEncoded
-    fun sepettekiYemekleriGetir(@Field("kullanici_adi") kullanici_adi: String):Call<CRUDCevap>
+        fun sepettekiYemekleriGetir(@Field("kullanici_adi") kullanici_adi: String):Call<CardResponse>
 
 
     @POST("yemekler/sepettenYemekSil.php")

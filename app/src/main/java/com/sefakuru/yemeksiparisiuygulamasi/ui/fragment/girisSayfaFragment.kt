@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
 import com.google.android.material.snackbar.Snackbar
 import com.sefakuru.yemeksiparisiuygulamasi.R
+import com.sefakuru.yemeksiparisiuygulamasi.Util
 import com.sefakuru.yemeksiparisiuygulamasi.databinding.FragmentGirisSayfaBinding
 import com.sefakuru.yemeksiparisiuygulamasi.databinding.FragmentSepetBinding
 
@@ -21,6 +22,8 @@ class girisSayfaFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding=DataBindingUtil.inflate(inflater,R.layout.fragment_giris_sayfa, container, false)
+
+        Util.bottomNavigationGone(requireActivity())
 
         binding.buttonGiris.setOnClickListener {
 

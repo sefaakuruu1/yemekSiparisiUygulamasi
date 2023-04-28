@@ -4,15 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="DetayToolbarBaslik"
             type="String" />
+
         <variable
             name="DetayFragment"
             type="com.sefakuru.yemeksiparisiuygulamasi.ui.fragment.DetayFragment" />
+
         <variable
             name="yemekNesnesi"
             type="com.sefakuru.yemeksiparisiuygulamasi.data.entity.Yemek" />
+
         <variable
             name="tiklanma"
             type="Integer" />
@@ -26,7 +30,6 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbarDetay"
-            app:title="@{DetayToolbarBaslik}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="?attr/colorPrimary"
@@ -34,15 +37,37 @@
             android:theme="?attr/actionBarTheme"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/geriTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|center"
+                android:padding="5dp"
+                android:src="@drawable/baseline_arrow_back_24"
+                android:onClick="@{()-> DetayFragment.geriButton()}"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/toolbarBaslik"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:text="@{DetayToolbarBaslik}"
+                android:textColor="@color/white" />
+
+        </androidx.appcompat.widget.Toolbar>
 
         <Button
             android:id="@+id/buttonArttir"
             android:layout_width="64dp"
-            android:onClick="@{() -> DetayFragment.arttir()}"
             android:layout_height="64dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="100dp"
+            android:onClick="@{() -> DetayFragment.arttir()}"
             android:text="+"
             android:textColor="@color/white"
             android:textSize="34sp"
@@ -62,11 +87,11 @@
 
         <Button
             android:id="@+id/buttonAzalt"
-            android:onClick="@{() -> DetayFragment.azalt()}"
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:layout_marginStart="100dp"
             android:layout_marginTop="16dp"
+            android:onClick="@{() -> DetayFragment.azalt()}"
             android:text="-"
             android:textColor="@color/white"
             android:textSize="34sp"
@@ -115,10 +140,10 @@
 
         <Button
             android:id="@+id/buttonSepeteEkle"
-            android:onClick="@{() ->DetayFragment.sepeteEkle(yemekNesnesi.yemek_adi,yemekNesnesi.yemek_resim_adi,yemekNesnesi.yemek_fiyat,tiklanma)}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="96dp"
+            android:onClick="@{() ->DetayFragment.sepeteEkle(yemekNesnesi.yemek_adi,yemekNesnesi.yemek_resim_adi,yemekNesnesi.yemek_fiyat,tiklanma)}"
             android:text="SEPETE EKLE"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"

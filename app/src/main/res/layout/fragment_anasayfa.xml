@@ -36,16 +36,16 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvYemekler"
-            android:adapter="@{yemeklerAdapter}"
-            app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
-            app:spanCount="2"
-            android:orientation="vertical"
-
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginBottom="56dp"
+            android:adapter="@{yemeklerAdapter}"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbarAnasayfa" />
+            app:layout_constraintTop_toBottomOf="@+id/toolbarAnasayfa"
+            app:spanCount="3" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
